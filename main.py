@@ -4,9 +4,20 @@ from cryptography.fernet import Fernet
 from pathlib import Path
 import secrets
 import hashlib
+import tkinter as tk
+
 
 def main():
+    root = tk.Tk()
+    root.title("pVault")
+    root.geometry("400x550")
     file_path = Path("passwords.json")
+    passwordEntry = tk.Entry(root, show="*")
+    passwordEntry.pack(pady=10)
+
+    submitButton = tk.Button(root, text="Submit")
+    submitButton.pack(pady=10)
+
     if not file_path.exists():
         salt = secrets.token_bytes(16)
         masterPassword = input("Set a master password: ").encode()
