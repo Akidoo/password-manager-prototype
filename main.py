@@ -1,3 +1,4 @@
+from logging import root
 import sys
 import json
 from cryptography.fernet import Fernet
@@ -96,6 +97,8 @@ def fileOpener():
 def fileSaver(data):
     with open("passwords.json", "w") as file:
         json.dump(data, file, indent=4)
+
+root.mainloop()
 
 
 if __name__ == "__main__":
